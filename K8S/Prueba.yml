@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: django
-        image: jfmarquez23/demo_devops_python:v1.0
+        image: jfmarquez23/ruebas_python:latest
         ports:
         - containerPort: 8000
         env:
