@@ -1,0 +1,50 @@
+# Archivo .gitlab-ci.yml
+
+# Definir el nombre del job y el stage
+stages:
+  - build
+  - test
+  - analysis
+  - publish
+
+# Definir las variables
+variables:
+  DOCKER_IMAGE_TAG: "latest"
+
+# Definir los jobs
+build:
+  stage: build
+  script:
+    - docker build -t myapp:$DOCKER_IMAGE_TAG .
+
+unit_test:
+  stage: test
+  script:
+    - python manage.py test
+
+static_analysis:
+  stage: analysis
+  script:
+    - pylint myapp/
+
+code_coverage:
+  stage: analysis
+  script:
+    - coverage run manage.py test
+    - coverage report
+
+build_and_push_image:
+  stage: publish
+  script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $CI_REGISTRY_IMAGE:$DOCKER_IMAGE_TAG .
+    - docker push $CI_REGISTRY_IMAGE:$DOCKER_IMAGE_TAG
+
+# Opcionales
+
+vulnerability_scan:
+  stage: analysis
+  script:
+    - docker scan $CI_REGISTRY_IMAGE:$DOCKER_IMAGE_TAG
+
+# Puedes agregar nuevos tests como sea necesario
