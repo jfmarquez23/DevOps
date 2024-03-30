@@ -54,7 +54,7 @@ jobs:
         context: .
         file: ./dockerfile
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME }}/demo_devops_python:latest
+        tags: ${{ secrets.DOCKERHUB_USERNAME }}/demo-devops-python:latest
 
     # Optional: Vulnerability Scan
     - name: Scan the Docker image
