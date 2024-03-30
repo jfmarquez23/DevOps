@@ -52,7 +52,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: jfmarquez23/demo_devops_python:latest
+        tags: jfmarquez23/dem0
 
     # Optional: Vulnerability Scan
     - name: Scan the Docker image
