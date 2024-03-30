@@ -3,30 +3,14 @@ name: Django CI/CD Pipeline
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   build-test-analysis:
-    #runs-on: ubuntu-latest
-
-    #services:
-      #postgres:
-        #image: postgres:12
-        #env:
-          #POSTGRES_DB: mydb
-          #POSTGRES_USER: user
-          #POSTGRES_PASSWORD: password
-        #ports:
-          #- 5432:5432
-        # Options to use the service container
-        #options: >-
-          #--health-cmd pg_isready
-          #--health-interval 10s
-          #--health-timeout 5s
-          #--health-retries 5
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -34,7 +18,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.8
+        python-version: 3.11.3
 
     - name: Install dependencies
       run: |
@@ -60,9 +44,9 @@ jobs:
 
   docker-build-push:
     needs: build-test-analysis
-    #runs-on: ubuntu-latest
-    #steps:
-    #- uses: actions/checkout@v2
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
 
     - name: Log in to Docker Hub
       uses: docker/login-action@v1
