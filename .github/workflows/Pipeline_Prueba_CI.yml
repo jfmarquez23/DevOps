@@ -52,11 +52,11 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: jfmarquez23/pruebas_python:latest
+        tags: jfmarquez23/demo_devops_python:latest
 
     # Optional: Vulnerability Scan
     - name: Scan the Docker image
       uses: aquasecurity/trivy-action@master
       with:
-        image-ref: 'jfmarquez23/pruebas_python:latest'
+        image-ref: 'jfmarquez23/demo_devops_python:latest'
         format: 'table'
