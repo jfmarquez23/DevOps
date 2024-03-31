@@ -68,6 +68,9 @@ jobs:
         
     # Despliegue en Minicube kubernetes  
     # Instalar Minikube
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
     - name: Instalar Minikube
       run: |
         curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
@@ -86,13 +89,11 @@ jobs:
 
     # Cargar la imagen de Docker Hub
     - name: Cargar imagen en Minikube
-      uses: actions/checkout@v2
       run: |
         kubectl apply -f imagen_docker.yml
         
     # Apply kubernetes deployment and service
     - name: Desplegar la aplicación
-      uses: actions/checkout@v2
       run: |
         kubectl apply -f prueba.yml
         
