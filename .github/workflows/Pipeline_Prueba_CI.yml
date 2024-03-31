@@ -82,7 +82,7 @@ jobs:
     # Start Minikube
     - name: Iniciar Minikube
       run: |
-        minikube start --driver=none
+        minikube start
 
     # Build and push the image to Minikube's Docker daemon
     - name: Construir y cargar imagen en Minikube
