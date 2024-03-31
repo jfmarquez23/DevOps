@@ -65,26 +65,3 @@ jobs:
       with:
         image-ref: 'jfmarquez23/python_devops:latest'
         format: 'table'
-        
-    # Despliegue en Minicube   
-    - name: Install kubectl
-        run: |
-          curl -LO "https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl"
-          chmod +x ./kubectl
-          sudo mv ./kubectl /usr/local/bin/kubectl
-
-      - name: Set up Minikube
-        run: |
-          curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-          chmod +x minikube
-          sudo mkdir -p /usr/local/bin/
-          sudo install minikube /usr/local/bin/
-
-      - name: Start Minikube
-        run: |
-          sudo minikube start --driver=none
-
-      - name: Apply Kubernetes Deployment
-        run: |
-          sudo minikube kubectl -- apply -f despliegue.yaml
-          sudo minikube kubectl -- apply -f servicio.yaml
