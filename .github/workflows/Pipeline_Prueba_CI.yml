@@ -85,22 +85,21 @@ jobs:
         minikube start
 
     # Build and push the image to Minikube's Docker daemon
-    - name: Construir y cargar imagen en Minikube
+    - name: Cargar imagen en Minikube
       run: |
         minikube image load python_devops:latest
 
     # Apply kubernetes deployment and service
     - name: Desplegar la aplicación
       run: |
-        kubectl apply -f Prueba.yml
-        kubectl expose deployment mi-app --type=NodePort --port=8000
-
+        kubectl apply -- apply -f prueba.yml
+        
     # Check deployment status
     - name: Comprobar estado del despliegue
       run: |
-        kubectl rollout status deployment/mi-app
+        kubectl rollout status prueba/python_devops
 
     # Get service URL
     - name: Obtener URL del servicio
       run: |
-        minikube service mi-app --url
+        minikube service python_devops --url
