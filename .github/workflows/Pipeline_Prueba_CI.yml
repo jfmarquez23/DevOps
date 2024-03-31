@@ -104,6 +104,7 @@ jobs:
     - name: Desplegar la aplicación
       run: |
         kubectl apply -f .github/workflows/prueba.yml
+        kubectl expose deployment mi-app --type=NodePort --port=8001
         
     # Check deployment status
     - name: Comprobar estado del despliegue
