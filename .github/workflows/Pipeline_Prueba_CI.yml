@@ -102,4 +102,4 @@ jobs:
     # Get service URL
     - name: Obtener URL del servicio
       run: |
-        minikube get services
+        kubectl get services
