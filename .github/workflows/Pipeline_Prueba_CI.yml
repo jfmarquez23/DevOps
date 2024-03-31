@@ -103,7 +103,7 @@ jobs:
     # Apply kubernetes deployment and service
     - name: Desplegar la aplicación
       run: |
-        kubectl apply -f prueba.yml
+        kubectl apply -f .github/workflows/prueba.yml
         
     # Check deployment status
     - name: Comprobar estado del despliegue
