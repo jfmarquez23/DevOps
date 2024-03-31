@@ -92,7 +92,7 @@ jobs:
     # Apply kubernetes deployment and service
     - name: Desplegar la aplicación
       run: |
-        kubectl apply -f Prueba.yaml
+        kubectl apply -f Prueba.yml
         kubectl expose deployment mi-app --type=NodePort --port=8000
 
     # Check deployment status
