@@ -92,7 +92,7 @@ jobs:
     # Apply kubernetes deployment and service
     - name: Desplegar la aplicación
       run: |
-        kubectl -- apply -f prueba.yml
+        kubectl apply -f prueba.yml
         kubectl expose deployment django-deployment --type=NodePort --port=8000
         
         
