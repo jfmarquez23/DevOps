@@ -109,6 +109,11 @@ jobs:
     - name: Comprobar estado del despliegue
       run: |
         minikube status
+        
+    # Check deployment status
+    - name: Comprobar 
+      run: |
+        minikube dashboard
 
     # Get service URL
     - name: Obtener URL del servicio
