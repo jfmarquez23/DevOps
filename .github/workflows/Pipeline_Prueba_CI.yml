@@ -66,7 +66,7 @@ jobs:
         image-ref: 'jfmarquez23/python_devops:latest'
         format: 'table'
         
-    # Despliegue en Minicube   
+    # Despliegue en Minicube kubernetes  
     # Setup Minikube
     - name: Instalar Minikube
       run: |
