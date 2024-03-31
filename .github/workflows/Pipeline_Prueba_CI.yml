@@ -114,6 +114,7 @@ jobs:
     - name: Comprobar 
       run: |
         minikube dashboard
+        minikube addons enable metrics-server
 
     # Get service URL
     - name: Obtener URL del servicio
