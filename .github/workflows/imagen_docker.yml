@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mi-despliegue
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mi-aplicacion
+  template:
+    metadata:
+      labels:
+        app: mi-aplicacion
+    spec:
+      containers:
+      - name: mi-contenedor
+        image: jfmarquez23/python_devops:latest

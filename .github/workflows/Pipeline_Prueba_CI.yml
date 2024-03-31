@@ -67,32 +67,32 @@ jobs:
         format: 'table'
         
     # Despliegue en Minicube kubernetes  
-    # Setup Minikube
+    # Instalar Minikube
     - name: Instalar Minikube
       run: |
         curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
         sudo install minikube-linux-amd64 /usr/local/bin/minikube
 
-    # Setup kubectl
+    # Instalar kubectl
     - name: Instalar kubectl
       run: |
         curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
         sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 
-    # Start Minikube
+    # Iniciar Minikube
     - name: Iniciar Minikube
       run: |
         minikube start
 
-    # Build and push the image to Minikube's Docker daemon
+    # Cargar la imagen de Docker Hub
     - name: Cargar imagen en Minikube
       run: |
-        minikube image load python_devops:latest
-
+        kubectl apply -f imagen_docker.yaml
+        
     # Apply kubernetes deployment and service
     - name: Desplegar la aplicación
       run: |
-        kubectl -- apply -f prueba.yml
+        kubectl apply -f prueba.yml
         
     # Check deployment status
     - name: Comprobar estado del despliegue
