@@ -68,9 +68,14 @@ jobs:
         
     # Despliegue en Minicube kubernetes  
     # Instalar Minikube
+    
+  build:
+    runs-on: ubuntu-latest
+
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+    
     - name: Instalar Minikube
       run: |
         curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
