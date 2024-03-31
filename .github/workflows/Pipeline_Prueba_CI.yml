@@ -93,6 +93,9 @@ jobs:
         minikube start
 
     # Cargar la imagen de Docker Hub
+    - name: Checkout
+      uses: actions/checkout@v2
+      
     - name: Cargar imagen en Minikube
       run: |
         kubectl apply -f imagen_docker.yml
