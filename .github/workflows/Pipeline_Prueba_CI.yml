@@ -93,6 +93,8 @@ jobs:
     - name: Desplegar la aplicación
       run: |
         kubectl -- apply -f prueba.yml
+        kubectl expose deployment mi-app --type=NodePort --port=8000
+        
         
     # Check deployment status
     - name: Comprobar estado del despliegue
