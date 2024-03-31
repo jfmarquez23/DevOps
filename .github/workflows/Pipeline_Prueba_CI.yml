@@ -92,14 +92,14 @@ jobs:
     # Apply kubernetes deployment and service
     - name: Desplegar la aplicación
       run: |
-        kubectl -- apply -f prueba.yml
+        kubectl create -f prueba.yml
         
     # Check deployment status
     - name: Comprobar estado del despliegue
       run: |
-        kubectl rollout status deployment/django-deployment
+        kubectl get pods
 
     # Get service URL
     - name: Obtener URL del servicio
       run: |
-        minikube service python_devops --url
+        minikube get services
