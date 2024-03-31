@@ -60,5 +60,5 @@ jobs:
     - name: Scan the Docker image
       uses: aquasecurity/trivy-action@master
       with:
-        image-ref: 'jfmarquez23/demo_devops_python:latest'
+        image-ref: 'jfmarquez23/python_devops:latest'
         format: 'table'
