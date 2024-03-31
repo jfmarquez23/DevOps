@@ -87,12 +87,12 @@ jobs:
     # Cargar la imagen de Docker Hub
     - name: Cargar imagen en Minikube
       run: |
-        kubectl apply -f imagen_docker.yml
+        kubectl -- apply -f imagen_docker.yml
         
     # Apply kubernetes deployment and service
     - name: Desplegar la aplicación
       run: |
-        kubectl apply -f prueba.yml
+        kubectl -- apply -f prueba.yml
         
     # Check deployment status
     - name: Comprobar estado del despliegue
