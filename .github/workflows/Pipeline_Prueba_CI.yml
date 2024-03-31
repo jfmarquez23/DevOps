@@ -108,7 +108,7 @@ jobs:
     # Check deployment status
     - name: Comprobar estado del despliegue
       run: |
-        kubectl get pods
+        minikube status
 
     # Get service URL
     - name: Obtener URL del servicio
