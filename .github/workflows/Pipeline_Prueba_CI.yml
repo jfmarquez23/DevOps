@@ -98,7 +98,7 @@ jobs:
       
     - name: Cargar imagen en Minikube
       run: |
-        kubectl apply -f imagen_docker.yml
+        kubectl apply -f .github/workflows/imagen_docker.yml
         
     # Apply kubernetes deployment and service
     - name: Desplegar la aplicación
