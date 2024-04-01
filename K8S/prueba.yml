@@ -20,7 +20,7 @@ spec:
         - containerPort: 8000
         env:
         - name: SECRET_KEY
-          value: "tu-secret-key"
+          value: "clave secreta"
         - name: DEBUG
           value: "False"
 ---
